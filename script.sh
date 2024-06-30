@@ -20,18 +20,3 @@ brew install yabai
 brew install koekeishiya/formulae/skhd
 skhd --start-service
 
-
-# Copy config
-cp -r ./.config/ ~/.config/
-
-# Copy tmux config
-cp .tmux.conf ~/.tmux.conf
-
-# Copy skhd config file
-cp .skhdrc ~/.skhdrc
-
-# Copy .zshrc config file
-cp .zshrc ~/.zshrc
-
-# Copy p10k config
-cp .p10k.zsh ~/.p10k.zsh
