@@ -25,7 +25,7 @@ ctrl - k : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:
 ctrl - l : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
 
 # Open / Focus on app
-ctrl - s : open -a Arc
+ctrl - s : open -a Safari
 ctrl - o : open -a Mail 
 ctrl - t : open -a Terminal
-ctrl - w : open -a Visual\ Studio\ Code
+ctrl - w : open -a Cursor
