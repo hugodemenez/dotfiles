@@ -14,12 +14,15 @@ If you are on a Linux system, you won't encounter any difficulty in using the sa
 
 ## Setup
 
-Clone this repo to `~/dotfiles`.
+For a fresh macOS install, run this one-liner:
 
-For faster implementation, a bash script is in the repo.
-To run the bash script, use `chmod 755 script.sh` then `./script.sh`.
+```bash
+curl -fsSL https://raw.githubusercontent.com/hugodemenez/dotfiles/latest/script.sh | sh
+```
 
-This will install the required tools via Homebrew and create symlinks from `~/dotfiles` to the appropriate config locations.
+This will install Homebrew, clone the repo to `~/dotfiles`, install required tools, and set up symlinks.
+
+Alternatively, clone manually and run `./script.sh`.
 
 ## Config
 
