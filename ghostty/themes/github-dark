@@ -1,0 +1,23 @@
+background = 040404
+foreground = f0f3f6
+cursor-color = ffffff
+cursor-text = 040404
+selection-background = ffffff
+selection-foreground = 020408
+
+palette = 0=7c828d
+palette = 1=f09995
+palette = 2=63ca5e
+palette = 3=e7b94d
+palette = 4=81b5f9
+palette = 5=c4a0f9
+palette = 6=66c2cd
+palette = 7=dadede
+palette = 8=a0a7b2
+palette = 9=f4b4b1
+palette = 10=79de76
+palette = 11=f0ca5d
+palette = 12=9dc9fa
+palette = 13=d5b8fa
+palette = 14=7ad1db
+palette = 15=ffffff
