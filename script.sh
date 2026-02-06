@@ -29,6 +29,7 @@ install_tools() {
 
   # Install tmux plugin manager
   if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    mkdir -p ~/.tmux/plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
   echo "Note: In tmux, press prefix + I to install plugins."
@@ -81,4 +82,3 @@ skhd --start-service
 setup_symlinks
 
 echo "Dotfiles setup complete. Restart your shell and tmux/Neovim/Ghostty."
-
