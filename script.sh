@@ -66,6 +66,11 @@ setup_symlinks() {
   # Tmux
   backup_if_exists "$HOME/.tmux.conf"
   ln -sf "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
+
+  # Cursor keybindings
+  mkdir -p "$HOME/Library/Application Support/Cursor/User"
+  backup_if_exists "$HOME/Library/Application Support/Cursor/User/keybindings.json"
+  ln -sf "$DOTFILES_DIR/cursor/keybindings.json" "$HOME/Library/Application Support/Cursor/User/keybindings.json"
 }
 
 # Main
