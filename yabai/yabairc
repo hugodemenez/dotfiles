@@ -22,6 +22,16 @@ yabai -m config --space 1 top_padding 16
 yabai -m config --space 2 top_padding 16
 yabai -m config --space 3 top_padding 16
 
+# Terminal tabs: on macOS each tab is a separate top-level window, so yabai cannot
+# treat "only tabs" differently from "new window" (no role/subrole distinction).
+# See: https://github.com/koekeishiya/yabai/discussions/840
+# Option A: don't manage Terminal → tabs work as tabs, but terminal isn't tiled:
+# yabai -m rule --add app="^Terminal$" manage=off
+# Option B (if you prefer tiling): remove the rule above and use signals below to
+# rebalance layout when tabs are added/removed (tabs still appear as separate tiles):
+yabai -m signal --add app='^Terminal$' event=window_created   action='yabai -m space --layout bsp'
+yabai -m signal --add app='^Terminal$' event=window_destroyed action='yabai -m space --layout bsp'
+
 # float system preferences. Most of these just diable Yabai form resizing them.
 yabai -m rule --add app="^System Preferences$" sticky=on sub-layer=above manage=off
 yabai -m rule --add app="^Finder$" sticky=on sub-layer=above manage=off
