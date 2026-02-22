@@ -195,25 +195,21 @@ return {
         },
       })
 
-      local lspconfig = require("lspconfig")
-
-      lspconfig.ruff.setup({
-        init_options = {
-          settings = {
-            organizeImports = true,
-            lint = {
-              select = { "E", "F", "I", "B", "Q", "UP", "ANN", "PL", "RUF" },
-              ignore = {},
+      vim.lsp.config("ruff", {
+        capabilities = capabilities,
+        settings = {
+          initializeOptions = {
+            settings = {
+              organizeImports = true,
+              lint = {
+                select = { "E", "F", "I", "B", "Q", "UP", "ANN", "PL", "RUF" },
+                ignore = {},
+              },
+              lineLength = 88,
+              format = { docstring_code = true },
             },
-            lineLength = 88,
-            format = { docstring_code = true },
           },
         },
-        on_attach = function(client, bufnr)
-          local opts = { buffer = bufnr, noremap = true, silent = true }
-          vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, opts)
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-        end,
       })
 
       -- Enable configured servers
