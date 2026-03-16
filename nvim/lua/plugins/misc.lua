@@ -17,10 +17,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false, -- nvim-treesitter does not support lazy loading
     build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter").setup({})
-      -- Install parsers (async, runs in background)
-      require("nvim-treesitter").install({
+    opts = {
+      ensure_installed = {
         "lua", "vim", "vimdoc", "query",
         "javascript", "typescript", "tsx",
         "html", "css", "json", "yaml", "toml",
@@ -28,8 +26,8 @@ return {
         "bash", "markdown", "markdown_inline",
         "gitcommit", "gitignore", "diff",
         "regex", "dockerfile", "sql",
-      })
-    end,
+      },
+    },
   },
 
   -- Autopairs
@@ -53,7 +51,20 @@ return {
       { "gcc", mode = "n",          desc = "Comment line" },
       { "gc",  mode = { "n", "v" }, desc = "Comment" },
     },
-    opts = {},
+    opts = {
+      -- Fallback for filetypes with no commentstring (e.g. "!")
+      pre_hook = function(ctx)
+        local cstr = vim.bo.commentstring
+        if not cstr or cstr == "" or not cstr:match("%%s") then
+          return "# %s"
+        end
+      end,
+    },
+    config = function(_, opts)
+      require("Comment").setup(opts)
+      -- Set commentstring for filetype "!" (invalid/empty filetype)
+      require("Comment.ft").set("!", "# %s")
+    end,
   },
 
   -- Indent guides

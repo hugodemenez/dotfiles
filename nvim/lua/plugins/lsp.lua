@@ -180,10 +180,6 @@ return {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("pyright", {
-        capabilities = capabilities,
-      })
-
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {
@@ -197,17 +193,15 @@ return {
 
       vim.lsp.config("ruff", {
         capabilities = capabilities,
-        settings = {
-          initializeOptions = {
-            settings = {
-              organizeImports = true,
-              lint = {
-                select = { "E", "F", "I", "B", "Q", "UP", "ANN", "PL", "RUF" },
-                ignore = {},
-              },
-              lineLength = 88,
-              format = { docstring_code = true },
+        init_options = {
+          settings = {
+            organizeImports = true,
+            lint = {
+              select = { "E", "F", "I", "B", "Q", "UP", "ANN", "PL", "RUF" },
+              ignore = {},
             },
+            lineLength = 88,
+            format = { docstring_code = true },
           },
         },
       })

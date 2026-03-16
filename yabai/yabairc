@@ -31,6 +31,8 @@ yabai -m config --space 3 top_padding 16
 # rebalance layout when tabs are added/removed (tabs still appear as separate tiles):
 yabai -m signal --add app='^Terminal$' event=window_created   action='yabai -m space --layout bsp'
 yabai -m signal --add app='^Terminal$' event=window_destroyed action='yabai -m space --layout bsp'
+yabai -m signal --add app='^Ghostty$' event=window_created   action='yabai -m space --layout bsp'
+yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
 
 # float system preferences. Most of these just diable Yabai form resizing them.
 yabai -m rule --add app="^System Preferences$" sticky=on sub-layer=above manage=off
@@ -46,3 +48,6 @@ yabai -m rule --add app="^Logi Options +$" manage=off
 yabai -m rule --add app="^Find My$" manage=off
 yabai -m rule --add app="^Endel$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Cisco Secure Client$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Cursor$" manage=off
